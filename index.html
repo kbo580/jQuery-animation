@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <title>jQury アニメーション</title>
+</head>
+<body id="animation">
+  <h1>アニメーション</h1> 
+  <h2>show( )/hide( )</h2>
+  <dl>
+    <dt>show( );/hide( );</dt>
+      <dd>show( )は表示、hide( )は非表示にする</dd>
+      <dd>$('セレクター').show(スピード);</dd>
+      <dd>$('セレクター').hide(スピード);</dd>
+      <dd>( )内には「"fast"」,「"slow"」のいずれか、またはミリ秒単位で(1000ミリ=1秒)スピードを入力する。ミリ秒で指定する場合は” ”で囲わなくても良い。何も記入しないと即座に変化する</dd>
+      <div class="btn-wrapper">
+        <dd id="show-btn"><button>表示</button></dd>
+        <dd id="hide-btn"><button>非表示</button></dd>
+      </div>
+      <dd ><div class="box" id="show"></div></dd>
+      <dd> $('#btn').click(function(){<br>
+        &emsp;$('#box').hide("fast");<br>
+        &ensp; });<br>
+         $('#btn').click(function(){<br>
+       &emsp; $('#box').show("slow");<br>
+        &emsp;});
+      </dd>
+      <dd>表示の方は「"slow"」非表示の方は「"fast"」を設定した  </dd>
+      <dt>toggle( );</dt>
+      <dd>一つのコマンドで表示、非表示をする</dd>
+      <dd>$("セレクター").toggle(スピード);</dd>
+      <dd id="toggle-show-btn"><button>表示・非表示</button></dd>
+      <dd ><div class="box" id="show2"></div></dd>
+      <dd>$('#btn').click(function(){<br>
+        &emsp;&emsp;$('#box').toggle(500);<br>
+        &ensp; });<br>
+      </dd>
+      <dd>クリックイベントの場合だとボタンを連打するとその数だけアニメーションが実行されてしまう</dd>
+      <dd><span>:not(:animated)</span>と組み合わせることで解決できる。これを書くとアニメーションが処理中ではない要素を選択できるため</dd>
+      <dd id="toggle-show-btn2"><button>表示・非表示</button></dd>
+      <dd ><div class="box" id="show3"></div></dd>
+      <dd>
+        $('#btn').click(function(){<br>
+       &emsp;$('#box:not(:animated)').toggle(500);<br>
+        &emsp;});
+      </dd>
+    </dl>   
+
+    <h2>slideDown( )/slideUp( )</h2>
+    <dl>
+      <dt>slideDown( )/slideUp(v)</dt>
+      <dd>slideDown( )はセレクターで指定した要素をスライドダウンで表示、/slideUp( )はスライドアップで非表示をすることができる</dd>
+      <dd>$('セレクター').slideDown(スピード);</dd>
+      <dd>$('セレクター').slideUp(スピード);</dd>
+      <div class="btn-wrapper">
+        <dd id="slidedown-btn"><button>表示</button></dd>
+        <dd id="slideup-btn"><button>非表示</button></dd>
+      </div>
+      <dd ><div class="box" id="slide"></div></dd>
+      <dd>$('#btn').click(function(){<br>
+        &emsp; $('#box').slideDown('slow');<br>
+        &emsp;});<br>
+      </dd>
+      <dd> $('#btn').click(function(){<br>
+        &emsp; $('#box').slideUp('fast');<br>
+        &emsp;});<br>
+      </dd>
+      <dt>slideToggle( )</dt>
+      <dd>slideDown( )/slideUp( )にもtoggleが使える</dd>
+      <dd>$('セレクター').slideToggle(スピード);</dd>
+      <dd id="slidetoggle-btn"><button>表示・非表示</button></dd>
+      <dd ><div class="box" id="slideToggle"></div></dd>
+      <dd>$('#btn').click(function(){<br>
+        &emsp;$('#box:not(:animated)').slideToggle("slow");<br>
+        &emsp;});<br>
+      </dd>
+    </dl>   
+   
+
+
+
+    <h2>fadeIn( )/fadeOut( )</h2>
+    <dl>
+      <dt>fadeIn( )/fadeOut( )</dt>
+      <dd>フェードインしながら要素を表示、非表示する</dd>
+      <dd>$('セレクター').fadeIn(スピード);</dd>
+      <dd>$('セレクター').fadeOut(スピード);</dd>
+      <div class="btn-wrapper">
+        <dd id="fadein-btn"><button>表示</button></dd>
+        <dd id="fadeout-btn"><button>非表示</button></dd>
+      </div>
+      <dd ><div class="box" id="fade"></div></dd>
+      <dd>$('#btn').click(function(){<br>
+        &emsp; $('#box').fadeIn("slow");<br>
+        &emsp;});<br>
+      </dd>
+      <dd>$('#btn').click(function(){<br>
+        &emsp; $('#box').fadeOut("fast");<br>
+        &emsp;});<br>
+      </dd>
+      <dt>fadeTo( )</dt>
+      <dd>セレクターで指定した要素の透明度を設定まで徐々に変更する</dd>
+      <dd>$('セレクター').fadeTo("スピード",<span>透明度</span>);</dd>
+      <dd id="fadeto-btn"><button>半透明</button></dd>
+      <dd ><div class="fade-box" id="fadeto"></div></dd>
+      <dd>$('#btn').click(function(){<br>
+        &emsp;$('#box').fadeTo("slow",0.5);<br>
+        &emsp;});<br>
+      </dd>
+      <dt>fadeToggle( )</dt>
+      <dd>fadeIn( )/fadeOut( )にもtoggleが使える</dd>
+      <dd>$('セレクター').fadeToggle(スピード);</dd>
+      <dd id="fadetoggle-btn"><button>表示・非表示</button></dd>
+      <dd ><div class="box" id="fadetoggle"></div></dd>
+      <dd> $('#btn').click(function(){<br>
+        &emsp; $('#box':not(:animated)').fadeToggle("slow");<br>
+        &emsp;});<br>
+      </dd>
+      <dd>fadeOut("slow")とfadeTo("slow",0)は似ているが結果に違いがある。fadeOut("slow")の方はスペースを埋めてしまうのに対して、fadeTo("slow",0)は透明度が０になっているだけで実際はそこに存在している。使う時はどちらの結果を得たいかで使い分ける。</dd>
+    </dl>
+
+    <h2>animate( )</h2>
+    <dl>
+      <dt>animate( )</dt>
+      <dd>数値を扱うプロパティのみとなる(bakground-colorやdisplay)</dd>
+      <dd>$("セレクター").animate({<br>
+        &emsp; "cssセレクタ": "css数値"<br>
+        &emsp;});<br>
+      </dd>
+      <dd>これだけで最低限書ける</dd>
+      <dd id="animation-btn"><button>アニメーション</button></dd>
+      <dd ><div class="fade-box" id="anim"></div></dd>
+      <dd>$('#btn').click(function( ){<br>
+        &emsp;$('#box').animate({<br>
+        &emsp; "margin-left": "500px",<br>
+        &emsp;&emsp;});<br>
+        &emsp; });<br>
+      </dd>
+
+      <dd>{ }の後ろをカンマで区切って時間をミリ秒単位で指定する事でアニメーションのスピードを変えられる</dd>
+      <dd>$("セレクター").animate({<br>
+        &emsp; "cssセレクタ": "css数値"<br>
+        &emsp;}<span>,アニメーション時間</span>);<br>
+      </dd>
+      <div class="easing-wrapper">
+        <dd id="animation-btn2"><button>アニメーション</button></dd>
+        <dd ><div class="fade-box" id="anim2"></div></dd>
+        <dd class="back">上より少し遅い</dd>
+      </div>
+        <dd>$('#btn').click(function( ){<br>
+          &emsp;$('#box').animate({<br>
+          &emsp; "margin-left": "500px",<br>
+          &emsp;&emsp;}<span>,1000</span>);<br>
+          &emsp; });<br>
+        </dd>
+        <dd>{ }の後ろをカンマで区切って' 'の中に「linear」か「swing」を書く事でアニメーションの緩急を指定できる。この緩急をeasingといいデフォルトでは２つしか使えないがプラグインを使えば他のも使えるようになる。</dd>
+      <dd>$("セレクター").animate({<br>
+        &emsp; "cssセレクタ": "css数値"<br>
+        &emsp;},アニメーション時間<span>,'緩急'</span>);<br>
+      </dd>
+      <div class="easing-wrapper2">
+        <dd id="animation-btn3"><button>アニメーション</button></dd>
+        <dd ><div class="fade-box" id="anim3"></div></dd>
+        <dd class="back2">一応緩急がついているwww</dd>
+      </div>
+      <dd>$('#btn').click(function( ){<br>
+        &emsp;$('#box').animate({<br>
+        &emsp; "margin-left": "500px",<br>
+        &emsp;&emsp;},1000<span>,'swing'</span>);<br>
+        &emsp; });<br>
+      </dd>
+      <dd>長ったらしいけどコールバック関数を使う事で複雑なこともできる</dd>
+      <dd id="animation-btn4"><button>アニメーション</button></dd>
+      <dd ><div class="fade-box" id="anim4"></div></dd>
+      <dd>$('#btn').click(function( ){<br>
+        &emsp;$('#box').animate({<br>
+        &emsp; "margin-left": "500px",<br>
+        &emsp; "width": "50px",<br>
+        &emsp; "height": "50px"<br>
+        &emsp;},1000,'swing',function( ){<br>
+        &emsp; &emsp;$(this).css("background-color","red")<br>
+        &emsp;&emsp;.animate({<br>
+        &emsp;"width":"200px",<br>
+        &emsp;"height":"200px",<br>
+        &emsp;},1000,function( ){<br>
+        &emsp; $(this).fadeOut('slow');<br>
+        &emsp;&emsp; });<br>
+        &emsp;&emsp;});<br>
+        &emsp; });<br>
+      </dd>
+    </dl>     
+ <script src="js/main.js"></script>
+</body>
+</html>
